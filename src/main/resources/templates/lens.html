@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org
+	  xmlns:sec=http://www.thymeleaf.org/extras/spring-security
+	  xmlns:shiro=http://www.pollix.at/thymeleaf/shiro>
+<head>
+	<title>Optical/Frames</title>
+	<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" >
+	<script src="/js/jquery-1.11.0.min.js"></script>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="all" >
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script src="/js/simpleCart.min.js"> </script>
+	<link href="/css/memenu.css" rel="stylesheet" type="text/css" media="all" >
+	<script type="text/javascript" src="/js/memenu.js"></script>
+	<script>$(document).ready(function(){$(".memenu").memenu();});</script>
+	<script src="/js/jquery.easydropdown.js"></script>
+</head>
+<body>
+<div class="top-header">
+	<div class="container">
+		<div class="top-header-main">
+			<div class="col-md-6 top-header-left">
+				<div class="drop">
+					<div class="box">
+
+					</div>
+					<div class="box1">
+
+						</select>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="col-md-6 top-header-left">
+
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<div class="logo">
+	<a href="/home"><h1>Optical</h1></a>
+</div>
+<div class="header-bottom">
+	<div class="container">
+		<div class="header">
+			<div class="col-md-9 header-left">
+				<div class="top-nav">
+					<ul class="memenu skyblue"><li><a href="/home">Главная</a></li>
+						<li class="grid"><a href="/frames">Оправы</a></li>
+						<li class="active grid"><a href="/lenses">Линзы</a></li>
+						<li class="grid"><a href="/about">О нас</a>
+						</li>
+						<li class="grid"><a href="/contact">Связаться с нами</a>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col-md-3 header-right">
+				<div class="search-bar">
+					<form action = "/srch" method="post">
+						<input name = "name" type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+						<input type="submit" value="">
+					</form>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<div class="breadcrumbs">
+	<div class="container">
+		<div class="breadcrumbs-main">
+			<ol class="breadcrumb">
+				<li><a href="/home">Главная</a></li>
+				<li class="active">Линзы</li>
+			</ol>
+		</div>
+	</div>
+</div>
+
+<div class="prdt">
+	<div class="container">
+		<div class="prdt-top">
+			<div class="col-md-9 prdt-left">
+				<div class="product-one">
+					<div  th:each="el : ${lenses}" class="col-md-3 product-left">
+						<div class="product-main simpleCart_shelfItem">
+							<a th:href="@{/purchase/lens/{id}(id = ${el.id})}" class="mask"><img th:src="${el.img}" class="img-responsive zoom-img" alt="" /></a>
+							<div class="product-bottom">
+								<h3 th:text="${el.brand}"/>
+								<p th:text="${el.name}"/>
+								<h4><a class="item_add" href="#"><i></i></a> <span th:text="${el.cost}" class=" item_price"/></h4>
+							</div>
+							<div class="srch">
+								<span>BUY</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 prdt-right">
+			<div class="w_sidebar">
+				<section  class="sky-form">
+					<h4>Тип</h4>
+					<div class="row1 row2 scroll-pane">
+						<div class="col col-4">
+							<a href ="/lenses/single"><i></i>Однодневные</a><br><br>
+							<a href ="/lenses/double"><i></i>Двухнедельные</a><br><br>
+							<a href ="/lenses/month"><i></i>Ежемесячные</a><br><br>
+						</div>
+					</div>
+				</section>
+				<section  class="sky-form">
+					<h4>Материал</h4>
+					<div class="row1 scroll-pane">
+						<div class="col col-4">
+							<a href ="/lenses/sil"><i></i>Силикон-гидрогель</a><br><br>
+							<a href ="/lenses/hydro"><i></i>Гидрогель</a>
+						</div>
+					</div>
+				</section>
+				</section>
+				<section  class="sky-form">
+					<h4>Бренд</h4>
+					<div class="row1 row2 scroll-pane">
+						<div class="col col-4">
+							<a href ="/lenses/iwear"><i></i>iWear</a><br><br>
+							<a href ="/lenses/alcon"><i></i>Alcon</a><br><br>
+							<a href ="/lenses/j&j"><i></i>Johson & Johson</a><br><br>
+							<a href ="/lenses/CV"><i></i>Cooper Vision</a><br><br>
+						</div>
+					</div>
+				</section>
+
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="information">
+	<div class="container">
+		<div class="infor-top">
+			<div class="col-md-3 infor-left">
+				<h3>Наши соц. сети</h3>
+				<ul>
+					<li><a href="#"><span class="fb"></span><h6>Facebook</h6></a></li>
+					<li><a href="#"><span class="twit"></span><h6>Twitter</h6></a></li>
+					<li><a href="#"><span class="google"></span><h6>Google+</h6></a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 infor-left">
+				<h3>Ассортимент</h3>
+				<ul>
+					<li><p>Большой выбор</p></li>
+					<li><p>Гарантия качество</p></li>
+					<li><p>Низкие цены</p></li>
+					<li><p>Бесплатная доставка</p></li>
+				</ul>
+			</div>
+			<div class="col-md-3 infor-left">
+				<h3>Магазин</h3>
+				<ul>
+					<li><a href="/frames"><p>Оправы</p></a></li>
+					<li><a href="/lenses"><p>Линзы</p></a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 infor-left">
+				<h3>Контакты</h3>
+				<h4>Optical,
+					<span>Мы помогаем видеть,</span>
+					Проспект Вернадского, д.78.</h4>
+				<h5>8 (800) 555-35-35</h5>
+				<p><a href="mailto:hydroponic234@gmail.com">hydroponic234@gmail.com</a></p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	<div class="container">
+		<div class="footer-top">
+			<div class="col-md-6 footer-left">
+
+			</div>
+			<div class="col-md-6 footer-right">
+				<p>© 2022 Optical. All Rights Reserved | Design by  <a href="https://vk.com/loveme.ayanami" target="_blank">'ayanami</a> </p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
